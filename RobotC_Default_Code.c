@@ -1,3 +1,5 @@
+// Default code for BEST/VEX robotics to be run in RobotC
+
 #pragma config(Motor,  port2,           rightMotor,    tmotorVex393_MC29, openLoop, driveRight)
 #pragma config(Motor,  port5,           myServo,       tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port6,           myMotor,       tmotorVex393_MC29, openLoop)
@@ -9,11 +11,11 @@ void drive() {
 	int rightSpeed = 0;
 	int leftSpeed = 0;
 
-	// Driving forward and backward
+	// Set speeds to drive forward and backward
 	rightSpeed += vexRT[Ch2];
 	leftSpeed += vexRT[Ch2];
 
-	// Turning left and right
+	// Set speeds to turn left and right
 	rightSpeed += vexRT[Ch1];
 	leftSpeed -= vexRT[Ch1];
 
@@ -27,7 +29,7 @@ void drive() {
 void servo() {
 	if (vexRT[Btn5U] == 1) {
 		motor[myServo] = -127;
-  }
+  	}
 	else if (vexRT[Btn5D] == 1){
 		motor[myServo] = 127;
 	}
@@ -41,7 +43,7 @@ void servo() {
 void smallMotor() {
 	if (vexRT[Btn6U] == 1) {
 		motor[myMotor] = 127;
-  }
+  	}
 	else if (vexRT[Btn6D] == 1) {
 	  motor[myMotor] = -127;
 	}
